@@ -13,10 +13,17 @@ build:
     - script:
         name: go get
         code: |
+          cd $WERCKER_SOURCE_DIR
           go version
 
+    # Build the project
+    - script:
+        name: go build
+        code: |
+          go build $WERCKER_SOURCE_DIR/source/
+
+    # Test the project
     - script:
         name: go test
         code: |
-          cd cd $WERCKER_SOURCE_DIR/source/
-          go test
+          go test $WERCKER_SOURCE_DIR/source/
