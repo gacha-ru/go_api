@@ -26,7 +26,6 @@ var _ = Describe("Book", func() {
 		os.Exit(2)
 	}
 
-
 	Context("Check response", func() {
 		It("/happy", func() {
 			Expect(happy_response.Status).To(Equal("200 OK"))

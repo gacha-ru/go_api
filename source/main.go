@@ -17,6 +17,7 @@ func main() {
 
 	m.Get("/", top)
 	m.Get("/happy", happy)
+	m.Get("/religo", religo)
 
 	m.Run()
 }

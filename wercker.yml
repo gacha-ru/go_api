@@ -1,6 +1,7 @@
-box: motemen/golang-goxc@0.2.0
+box: wercker/golang
 services:
   - mies/rethinkdb
+  - 
 # Build definition
 build:
   # The steps that will be executed on build
