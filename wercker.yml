@@ -16,8 +16,9 @@ build:
           cd $WERCKER_SOURCE_DIR
           go version
 
-    # Build the project
+    # which redis
     - script:
-        name: redis info
+        name: redis
         code: |
-          redis-cli info
+          which redis-server
+          ps aux |grep redis
