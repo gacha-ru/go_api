@@ -13,17 +13,22 @@ build:
     - script:
         name: go version
         code: |
-          cd $WERCKER_SOURCE_DIR
           go version
 
-    # go run
+    # go setup
     - script:
-        name: go test
+        name: go gets
         code: |
           cd ${WERCKER_SOURCE_DIR}/source
           go get github.com/tools/godep
+          go get github.com/codegangsta/gin
           godep get
-          go run main.go
+
+    # go server up
+    - script:
+        name: go gets
+        code: |
+          gin &
 
     # go test
     - script:
