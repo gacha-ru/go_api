@@ -1,4 +1,5 @@
 .idea
-Godeps
+Godeps/_workspace/
+Godeps/Readme
 gin-bin
 *.iml
