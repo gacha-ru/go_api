@@ -1,7 +1,6 @@
 box: wercker/golang
 services:
-  - mies/rethinkdb
-  - 
+  - wercker/redis
 # Build definition
 build:
   # The steps that will be executed on build
@@ -19,12 +18,6 @@ build:
 
     # Build the project
     - script:
-        name: go build
+        name: redis info
         code: |
-          go build $WERCKER_SOURCE_DIR/source/
-
-    # Test the project
-    - script:
-        name: go test
-        code: |
-          go test $WERCKER_SOURCE_DIR/source/
+          redis-cli info
