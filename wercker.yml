@@ -11,14 +11,19 @@ build:
 
     # Gets the dependencies
     - script:
-        name: go get
+        name: go version
         code: |
           cd $WERCKER_SOURCE_DIR
           go version
 
-    # which redis
+    # go run
     - script:
-        name: redis
+        name: go test
         code: |
-          which redis-server
-          ps aux |grep redis
+          go run main.go
+
+    # go test
+    - script:
+        name: go test
+        code: |
+          go test
