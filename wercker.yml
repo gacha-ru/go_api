@@ -21,6 +21,8 @@ build:
         name: go test
         code: |
           cd ${WERCKER_SOURCE_DIR}/source
+          go get github.com/tools/godep
+          godep get
           go run main.go
 
     # go test
