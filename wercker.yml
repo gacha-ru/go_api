@@ -26,12 +26,7 @@ build:
 
     # go server up
     - script:
-        name: go gets
+        name: gin and test
         code: |
           gin &
-
-    # go test
-    - script:
-        name: go test
-        code: |
           go test
