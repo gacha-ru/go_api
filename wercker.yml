@@ -23,6 +23,7 @@ build:
           go get github.com/tools/godep
           go get github.com/codegangsta/gin
           go get github.com/onsi/ginkgo
+          go get github.com/onsi/gomega
           godep get
           ls -l ${GOPATH}/src/github.com/
 
