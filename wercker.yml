@@ -28,5 +28,4 @@ build:
     - script:
         name: gin and test
         code: |
-          gin &
-          go test
+          sh server_test.sh
