@@ -24,7 +24,7 @@ build:
           go get github.com/codegangsta/gin
           go get github.com/onsi/ginkgo
           godep get
-          ls -l ${$GOPATH}/github.com/
+          ls -l ${GOPATH}/github.com/
 
     # go server up
     - script:
