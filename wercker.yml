@@ -28,4 +28,5 @@ build:
     - script:
         name: gin and test
         code: |
+          cd ${WERCKER_SOURCE_DIR}/source
           sh server_test.sh
