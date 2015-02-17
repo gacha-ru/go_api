@@ -40,7 +40,7 @@ func main() {
 	m.Get("/", top)
 	m.Get("/happy", happy)
 	m.Get("/religo", religo)
-	m.Get("/set/:key", setkey)
+	m.Get("/set/:key/:value", setkey)
 	m.Get("/get/:key", getkey)
 
 	m.Run()

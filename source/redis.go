@@ -8,9 +8,29 @@ import (
 	"net/http"
 )
 
+
+// redisの値をインクリメントして表示
+func religo(r render.Render, pool *redis.Pool, params martini.Params) {
+	c := pool.Get()
+
+	// set
+	c.Do("INCR", "access_count")
+
+	//get
+	count, acerr := redis.String(c.Do("GET", "access_count"))
+	if acerr != nil {
+		count := 1
+		c.Do("SET", "access_count", count)
+	}
+
+	r.JSON(200, map[string]interface{}{"keys":count})
+}
+
+
 func setkey(r render.Render, pool *redis.Pool, params martini.Params, req *http.Request) {
 	key := params["key"]
-	value := req.URL.Query().Get("value")
+	value := params["value"]
+	//value := req.URL.Query().Get("value")
 
 	c := pool.Get()
 	defer c.Close()
@@ -28,6 +48,7 @@ func setkey(r render.Render, pool *redis.Pool, params martini.Params, req *http.
 			"status": status})
 	}
 }
+
 
 func getkey(r render.Render, pool *redis.Pool, params martini.Params) {
 	key := params["key"]

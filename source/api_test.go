@@ -6,12 +6,14 @@ import (
 
 	"net/http"
 	"os"
+	"fmt"
 )
 
 var _ = Describe("Book", func() {
 
 	response, err := http.Get("http://localhost:3000")
 	if err != nil {
+		fmt.Println("Connection Failed!!")
 		os.Exit(2)
 	}
 
